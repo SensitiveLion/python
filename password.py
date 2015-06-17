@@ -42,17 +42,19 @@ class CommonTests:
         count += 1
     if count >= 1:
       return true
-    # want to be false
+    # want to be true
 
   def uppercase
     matches = re.sub('[^A-Z]*', '', password)
     len(matches) >= 2;
+    # want to be true
 
   def lowercase
     matches = re.sub('[^a-z]*', '', password)
     len(matches) >= 2;
-
+    # want to be true
+    `
   def numbers
     matches = re.sub('[^0-9]*', '', password)
     len(matches) >= 2;
-
+    # want to be true
