@@ -1,4 +1,4 @@
-class CommonTests:
+class Common(object):
   import sys
   import re
 
@@ -63,9 +63,11 @@ class CommonTests:
     len(matches) >= 2;
     # want to be true
 
-  if long == True:
+  if uppercase() == True:
     result = "wow nice!"
-  else:
+  elif uppercase() == False:
     result = "not long enough"
+  else:
+    result = "damnit"
 
   print result
