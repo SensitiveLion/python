@@ -1,40 +1,44 @@
 class CommonTests:
+  import sys
   import re
+
+  password = sys.argv[1]
+
   def __init__(self, password):
     self.password = password
 
-  def prep
+  def prep(self):
     password.lstrip()
 
-  def long
-    len(password); >= 15
+  def long(self):
+    len(password) >= 15
     # want to be true
 
-  def only_alphanumaric
+  def only_alphanumaric(self):
     password.isalnum();
     # want to be false
 
-  def only_alpha
+  def only_alpha(self):
     password.isalpha();
     # want to be false
 
-  def only_lowercase
+  def only_lowercase(self):
     password.isdigit();
     # want to be false
 
-  def only_numbers
+  def only_numbers(self):
     password.isnumeric();
     # want to be false
 
-  def only_whitespace
+  def only_whitespace(self):
     password.isspace();
     # want to be false
 
-  def only_uppercase
+  def only_uppercase(self):
     password.isupper();
     # want to be false
 
-  def special_cases
+  def special_cases(self):
     specail = ["!", "@", "#", "$", "%", "^", "(", ")", "?", ":", "{", "}", "\\", "]", "[", "'", "/", ",", "-", "`", "+", "~", "_"]
     count = 0
     for character in list(password):
@@ -44,17 +48,24 @@ class CommonTests:
       return true
     # want to be true
 
-  def uppercase
+  def uppercase(self):
     matches = re.sub('[^A-Z]*', '', password)
     len(matches) >= 2;
     # want to be true
 
-  def lowercase
+  def lowercase(self):
     matches = re.sub('[^a-z]*', '', password)
     len(matches) >= 2;
     # want to be true
-    `
-  def numbers
+
+  def numbers(self):
     matches = re.sub('[^0-9]*', '', password)
     len(matches) >= 2;
     # want to be true
+
+  if long == True:
+    result = "wow nice!"
+  else:
+    result = "not long enough"
+
+  print result
