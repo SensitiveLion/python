@@ -8,40 +8,40 @@ class Common(object):
     self.password = password
 
   def prep(self):
-    password.lstrip()
+    self.password.lstrip()
 
   def long(self):
-    len(password) >= 15
+    len(self.password) >= 15
     # want to be true
 
   def only_alphanumaric(self):
-    password.isalnum();
+    self.password.isalnum();
     # want to be false
 
   def only_alpha(self):
-    password.isalpha();
+    self.password.isalpha();
     # want to be false
 
   def only_lowercase(self):
-    password.isdigit();
+    self.password.isdigit();
     # want to be false
 
   def only_numbers(self):
-    password.isnumeric();
+    self.password.isnumeric();
     # want to be false
 
   def only_whitespace(self):
-    password.isspace();
+    self.password.isspace();
     # want to be false
 
   def only_uppercase(self):
-    password.isupper();
+    self.password.isupper();
     # want to be false
 
   def special_cases(self):
     specail = ["!", "@", "#", "$", "%", "^", "(", ")", "?", ":", "{", "}", "\\", "]", "[", "'", "/", ",", "-", "`", "+", "~", "_"]
     count = 0
-    for character in list(password):
+    for character in list(self.password):
       if character in specail:
         count += 1
     if count >= 1:
@@ -49,25 +49,26 @@ class Common(object):
     # want to be true
 
   def uppercase(self):
-    matches = re.sub('[^A-Z]*', '', password)
+    matches = re.sub('[^A-Z]*', '', self.password)
     len(matches) >= 2;
+    return matches
     # want to be true
 
   def lowercase(self):
-    matches = re.sub('[^a-z]*', '', password)
+    matches = re.sub('[^a-z]*', '', self.password)
     len(matches) >= 2;
     # want to be true
 
   def numbers(self):
-    matches = re.sub('[^0-9]*', '', password)
+    matches = re.sub('[^0-9]*', '', self.password)
     len(matches) >= 2;
     # want to be true
 
-  if uppercase() == True:
-    result = "wow nice!"
-  elif uppercase() == False:
-    result = "not long enough"
-  else:
-    result = "damnit"
+if Common.uppercase():
+  result = "wow nice!"
+elif not(Common.uppercase()):
+  result = "not long enough"
+else:
+  result = "damnit"
 
-  print result
+print result
